@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音楽のチカラ、解き放つ。| ○○音楽教室</title>
+    <!-- <link rel="stylesheet" href="style.css">  <- 外部CSS読み込みは削除 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ▼▼▼ CSSコードをここに埋め込み ▼▼▼ -->
+    <style>
+        /* -------------------------------------------------------------------
+           全体設定
+           ------------------------------------------------------------------- */
+
+        body {
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+            background: linear-gradient(to bottom, #B0E0E6, #F0F8FF); /* 爽やかな背景 */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #444; /* 全体的なテキストカラー */
+            overflow-x: hidden;
+            padding: 20px;
+            box-sizing: border-box; /* paddingを含めたサイズ計算のため追加 */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 影を弱める */
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* ボタン共通スタイル（新しいゲームのスタイルで上書きされる可能性あり）*/
+        button {
+            cursor: pointer;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+
+        /* -------------------------------------------------------------------
+           Section 2: 聴覚の発達
+           ------------------------------------------------------------------- */
+
+        #section2 {
+            padding: 30px;
+            text-align: center;
+        }
+
+        #section2 h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        #section2 img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        #section2 p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .problem-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .problem-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .problem-list li::before {
+            content: "✓"; /* チェックマーク */
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #29ABE2;
+            font-size: 1.5em;
+        }
+
+        /* -------------------------------------------------------------------
+           Section 3: ヤマハの特長って？ (詳細)
+           ------------------------------------------------------------------- */
+
+        #section3 {
+            padding: 30px;
+            text-align: center; /* 全体を中央寄せ */
+        }
+
+        #section3 h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        #section3 p {
+            font-size: 1.2em; /* 段落のフォントサイズ */
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 30px; /* 段落の下マージン */
+            text-align: left; /* 段落を左寄せ */
+        }
+
+        /* 特徴を説明する各アイテムのスタイル */
+        .feature-description {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center; /* 横並び要素を中央寄せ */
+        }
+
+        .feature-item {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left; /* アイテム内のテキストを左寄せ */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 少し影をつける */
+        }
+
+        .feature-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            height: auto; /* 高さ自動調整 */
+        }
+
+        .feature-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #29ABE2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* -------------------------------------------------------------------
+           Section 4: レッスン内容
+           ------------------------------------------------------------------- */
+
+        #section4 {
+            padding: 30px;
+            text-align: left;
+        }
+
+        #section4 h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #section4 p {
+            font-size: 1.2em;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* グループレッスン、個人レッスン */
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .lesson-item {
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .lesson-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #29ABE2;
+        }
+
+        .lesson-item p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* 画像 */
+        .lesson-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            height: 200px;
+        }
+
+        /* -------------------------------------------------------------------
+           Section 5: 生徒さんの声
+           ------------------------------------------------------------------- */
+
+        #section5 {
+            padding: 30px;
+            text-align: center; /* 中央寄せに変更 */
+        }
+
+        #section5 h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* カード幅広げる */
+            gap: 30px;  /* ギャップを大きく */
+        }
+
+        .testimonial-item {
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            padding: 30px;       /* パディングを大きく */
+            text-align: left;    /* 左寄せ */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を追加 */
+        }
+
+        .testimonial-item img {
+            width: 120px;                 /* 幅を指定 */
+            height: 120px;                 /* 高さを指定 */
+            border-radius: 50%;           /* 円形にする */
+            object-fit: cover;            /* トリミング */
+            margin-bottom: 15px;
+            float: right;                /* 画像を右に配置 */
+            margin-left: 20px;           /*  隙間を作る */
+        }
+
+        .testimonial-item p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #29ABE2;
+        }
+
+         /* -------------------------------------------------------------------
+           Section 7: アクセスセクション (両方のセクションに適用される)
+           ------------------------------------------------------------------- */
+
+        #section7.access { /* HTML側でIDが重複しているので注意 */
+            padding: 30px;
+            text-align: center;
+        }
+
+        #section7.access .section-title {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px; /* 左右に余白を追加 */
+        }
+
+        .access-card {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 影を強める */
+            transition: transform 0.3s ease; /* ホバーエフェクト */
+        }
+
+        .access-card:hover {
+            transform: translateY(-5px); /* 少し浮かび上がる */
+        }
+
+        .access-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #29ABE2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .access-card p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .access-card a {
+            color: #FF7043;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            background-color: rgba(255, 112, 67, 0.1); /* 薄いオレンジ */
+            transition: background-color 0.3s ease, color 0.3s ease; /* colorも追加 */
+        }
+
+        .access-card a:hover {
+            background-color: #FF7043; /* ホバー時にオレンジ色 */
+            color: white;
+        }
+
+        .access-icon {
+            font-size: 2.5em; /* アイコンを大きく */
+            color: #FF7043;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* -------------------------------------------------------------------
+           Section 8: 無料体験レッスンの流れ
+           ------------------------------------------------------------------- */
+
+        #section8.lesson-flow {
+            padding: 30px;
+            text-align: center;
+        }
+
+        #section8.lesson-flow h2 {
+            font-size: 2.5em; /* 見出しサイズ調整 */
+            margin-bottom: 30px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .flow-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;  /* ギャップを大きく */
+            margin-bottom: 40px; /* 下の余白も大きく */
+        }
+
+        .flow-item {
+            background-color: #f0f8ff;  /* 明るい背景色 */
+            border-radius: 20px; /* 角を丸く */
+            padding: 25px;        /* パディングを大きく */
+            text-align: center;    /* 中央寄せ */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* 影を調整 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー効果 */
+        }
+
+        .flow-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* ホバー時にも影を強く */
+        }
+
+        .flow-step {
+            background-color: #29ABE2; /* STEPの背景色 */
+            color: white;                /* STEPの文字色 */
+            width: 70px;                /* STEPの幅 */
+            height: 70px;               /* STEPの高さ */
+            border-radius: 50%;          /* STEPを円形にする */
+            font-size: 1.4em;            /* STEPの文字サイズ */
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;       /* 上下のマージンを調整、左右中央寄せ */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .flow-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #29ABE2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .flow-item p {
+            line-height: 1.7;
+            color: #555;
+            text-align: left; /* テキストは左寄せ */
+        }
+
+        .flow-item img {
+            width: 100%;                /* 幅を100%にする */
+            border-radius: 10px;
+            margin-bottom: 15px;
+            object-fit: cover;           /* 画像がトリミングされるように */
+            height: 180px;              /* 高さを固定(アスペクト比維持) */
+        }
+
+        /* 安心ポイント */
+        .guarantee-points {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px; /* 上に余白 */
+            display: inline-block; /* 中央寄せのため */
+            text-align: left; /* リスト自体は左寄せ */
+        }
+
+        .guarantee-points li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .guarantee-points li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #29ABE2; /* チェックマークの色 */
+            font-size: 1.5em;
+            line-height: 1; /* 行の高さ調整 */
+        }
+
+        /* -------------------------------------------------------------------
+           レスポンシブ対応 (共通)
+           ------------------------------------------------------------------- */
+
+        @media (max-width: 768px) { /* タブレットサイズでの調整 */
+            .container {
+                padding: 20px;
+            }
+            h2 { /* 全体的に見出しサイズを少し調整 */
+              font-size: 2em !important; /* !importantで優先度を上げる */
+            }
+            #section8.lesson-flow h2 {
+              font-size: 2em !important; /* Section 8も同様 */
+            }
+            .feature-description,
+            .lesson-grid,
+            .testimonial-list,
+            .access-grid,
+            .flow-container {
+                grid-template-columns: 1fr; /* 基本的に縦一列 */
+                gap: 20px; /* ギャップを少し詰める */
+            }
+             .testimonial-item img {
+                width: 100px;
+                height: 100px;
+                float: none; /* スマホではフロート解除 */
+                display: block; /* ブロック要素にして中央寄せしやすくする */
+                margin: 0 auto 15px; /* 中央寄せ */
+            }
+            .testimonial-item {
+                text-align: center; /* テキストも中央寄せ */
+            }
+             .testimonial-item p {
+                 text-align: left; /* 段落は左寄せに戻す */
+             }
+
+            .access-card,
+            .flow-item {
+                padding: 20px;
+            }
+            .flow-item img {
+                height: 150px;
+            }
+
+        }
+
+        @media (max-width: 600px) { /* スマホサイズでの調整 */
+            body {
+                padding: 10px; /* bodyのパディングを減らす */
+            }
+            .container {
+                padding: 15px;
+                border-radius: 20px; /* 角丸を少し戻す */
+            }
+            h1 {
+                font-size: 2em !important; /* さらに小さく */
+            }
+            h2 {
+                font-size: 1.8em !important; /* さらに小さく */
+            }
+             #section8.lesson-flow h2 {
+              font-size: 1.8em !important; /* Section 8も同様 */
+            }
+
+            p {
+                font-size: 0.95em; /* 段落も少し小さく */
+            }
+
+            button { /* ボタン全体のサイズ調整 */
+                font-size: 0.95em;
+                padding: 10px 20px;
+            }
+            .access-card a { /* アクセスカードのリンクボタンも調整 */
+                padding: 10px 20px;
+                font-size: 0.95em;
+            }
+        }
+
+
+        /* -------------------------------------------------------------------
+           新しいゲーム用のスタイル (ここから下)
+           ------------------------------------------------------------------- */
+
+        /* ▼▼▼ Section 1: 新しいゲームのスタイル ▼▼▼ */
+
+        #section1 {
+            padding: 30px; /* セクションのパディング */
+            text-align: center;
+            overflow: hidden; /* はみ出し防止 */
+        }
+
+        #section1 h1 { /* ゲームタイトル */
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #FF6F91; /* タイトル色 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ゲーム要素全体を囲むコンテナ */
+        #mosquito-game {
+            margin-top: 20px; /* タイトルとの間隔 */
+        }
+
+        /* 現在周波数表示エリア */
+        #currentDisplay {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #29ABE2; /* 周波数の色 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        /* 周波数表示の数字部分 */
+        #currentDisplay span#currentFrequency {
+            font-weight: bold;
+        }
+
+        /* 周波数調整ボタンのコンテナ */
+        .frequency-adjust {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px; /* ボタン間の隙間 */
+            margin-bottom: 25px; /* 下の間隔 */
+        }
+
+        /* 周波数調整ボタンのスタイル */
+        .frequency-adjust button {
+            background-color: #fff; /* 背景白 */
+            color: #29ABE2; /* 文字とアイコンの基本色 */
+            border: 2px solid #29ABE2; /* 枠線 */
+            padding: 8px 12px; /* 内側の余白 */
+            font-size: 1em;
+            box-sizing: border-box;
+            border-radius: 30px; /* 角丸 */
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* 影 */
+            display: inline-flex; /* アイコンとテキストを横並び中央揃え */
+            align-items: center;
+            justify-content: center;
+            gap: 5px; /* アイコンとテキストの間隔 */
+            min-width: 90px; /* 最小幅 */
+        }
+
+        /* 周波数調整ボタンのホバー時 */
+        .frequency-adjust button:hover {
+            background-color: #1D83B2; /* 背景色変更 */
+            color: #fff; /* 文字とアイコンの色を白に */
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        /* ホバー時にアイコンの色も変える */
+        .frequency-adjust button:hover .icon {
+            fill: #fff;
+        }
+
+        /* スタートボタン */
+        #startGame.challenge-button { /* IDとクラスを指定 */
+            background: linear-gradient(to right, #FF7043, #FFAB40); /* オレンジグラデーション */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px; /* 強めの角丸 */
+            font-size: 1.3em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        /* スタートボタンのホバー時 */
+        #startGame.challenge-button:hover {
+            transform: scale(1.07);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+        /* スタートボタンのアイコン */
+        #startGame.challenge-button .icon {
+            fill: #fff;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* フィードバック表示エリア */
+        .feedback {
+            font-size: clamp(1.5rem, 6vw, 1.8rem); /* 可変フォントサイズ */
+            font-weight: bold;
+            text-align: center;
+            min-height: 40px; /* 高さを確保してレイアウト崩れを防ぐ */
+            margin: 25px 0; /* 上下の間隔 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* 絵文字とテキストの間 */
+            color: #333; /* デフォルトの文字色 */
+            transition: color 0.3s ease; /* 色が滑らかに変わるように */
+        }
+        /* 正解フィードバック */
+        .feedback.correct-feedback {
+            color: #28a745; /* 緑色 */
+        }
+        /* 不正解フィードバック */
+        .feedback.incorrect-feedback {
+            color: #dc3545; /* 赤色 */
+        }
+        /* ポップアップアニメーション */
+        @keyframes pop {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .feedback.pop-animation {
+            animation: pop 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        /* 回答ボタンのコンテナ */
+        .answer-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px; /* ボタン間の隙間 */
+            margin-bottom: 30px; /* 下の間隔 */
+        }
+
+        /* 回答ボタン (1-5) */
+        .answer-buttons button.answer-button { /* クラス指定を明確化 */
+            border: none;
+            width: 55px; /* ボタンサイズ */
+            height: 55px; /* ボタンサイズ */
+            border-radius: 50%; /* 円形 */
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            padding: 0; /* パディング不要 */
+            margin: 5px; /* 周囲に少し間隔 */
+            font-family: 'Arial Black', sans-serif; /* 数字用の太字フォント */
+            color: #29ABE2; /* 数字の色 */
+            background-color: #fff; /* 背景色 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* 回答ボタン (1-5) のホバー時 */
+        .answer-buttons button.answer-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #e0f7ff; /* 薄い水色背景 */
+        }
+
+        /* 回答ボタン (わからない) */
+        .answer-buttons button.answer-button[data-answer="0"] {
+            width: auto; /* 幅は自動 */
+            height: auto; /* 高さは自動 */
+            border-radius: 30px; /* 他のボタンに合わせる角丸 */
+            padding: 10px 20px; /* 内側の余白 */
+            font-size: 1em; /* フォントサイズ */
+            font-family: 'Arial Rounded MT Bold', sans-serif; /* 通常フォント */
+            background-color: #eee; /* 背景色 */
+            color: #555; /* 文字色 */
+        }
+        /* 回答ボタン (わからない) のホバー時 */
+        .answer-buttons button.answer-button[data-answer="0"]:hover {
+            background-color: #ddd;
+        }
+
+        /* 結果表示エリア */
+        .results {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px; /* 結果間の隙間 */
+            margin-bottom: 30px; /* 下の間隔 */
+        }
+        /* 各結果項目 */
+        .result-item { /* HTMLに .stat クラスは不要 */
+            background: #f0f8ff; /* 背景色 */
+            padding: 10px 15px; /* 内側余白 */
+            border-radius: 10px; /* 角丸 */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* 内側の影 */
+            min-width: 120px; /* 最小幅 */
+            text-align: center; /* テキスト中央揃え */
+        }
+        /* 結果のラベル (最高記録/正答率) */
+        .result-item .label {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 3px;
+        }
+        /* 結果の値 (Hz / %) */
+        .result-item .value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #29ABE2; /* 値の色 */
+        }
+
+        /* はじめにもどるボタン */
+        #restart.restart-button { /* IDとクラスを指定 */
+            background-color: #aaaaaa; /* グレー背景 */
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            margin-top: 10px; /* 上の間隔 */
+            display: inline-flex; /* 中央揃えのため */
+            justify-content: center;
+            align-items: center;
+        }
+        /* はじめにもどるボタンのホバー時 */
+        #restart.restart-button:hover {
+            background-color: #888888; /* 濃いグレー */
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* SVGアイコン共通スタイル */
+        .icon {
+            width: 16px; /* アイコンサイズ */
+            height: 16px;
+            fill: currentColor; /* 親要素の文字色(color)を継承 */
+        }
+        /* 周波数調整ボタンのアイコン色を強制指定 */
+        .frequency-adjust button .icon {
+            fill: #29ABE2;
+        }
+        .frequency-adjust button:hover .icon {
+            fill: #fff; /* ホバー時は白 */
+        }
+        /* スタートボタンのアイコン色を強制指定 */
+        #startGame.challenge-button .icon {
+            fill: #fff; /* 白 */
+        }
+
+        /* ボタン無効化スタイル */
+        button:disabled {
+            background-color: #ccc !important; /* 背景色 */
+            border-color: #ccc !important; /* 枠線色 */
+            color: #888 !important; /* 文字色 */
+            cursor: not-allowed; /* カーソル */
+            transform: none !important; /* アニメーション無効 */
+            box-shadow: none !important; /* 影無効 */
+            opacity: 0.7; /* 少し薄くする */
+        }
+        button:disabled .icon {
+            fill: #888 !important; /* アイコン色も無効化 */
+        }
+
+        /* スマホ表示調整 (新しいゲーム用) */
+        @media (max-width: 400px) {
+            #section1 h1 { /* ゲームタイトル */
+                font-size: 1.8em;
+            }
+            #currentDisplay { /* 周波数表示 */
+                font-size: 2.2em;
+            }
+            .frequency-adjust { /* 周波数調整ボタンコンテナ */
+                gap: 5px;
+            }
+            .frequency-adjust button { /* 周波数調整ボタン */
+                padding: 6px 10px;
+                font-size: 0.9em;
+                min-width: 75px;
+            }
+            #startGame.challenge-button { /* スタートボタン */
+                font-size: 1.1em;
+                padding: 10px 20px;
+            }
+            .answer-buttons { /* 回答ボタンコンテナ */
+                gap: 10px;
+            }
+            .answer-buttons button.answer-button { /* 回答ボタン(1-5) */
+                width: 45px;
+                height: 45px;
+                font-size: 1em;
+            }
+            .answer-buttons button.answer-button[data-answer="0"] { /* 回答ボタン(わからない) */
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            .result-item .value { /* 結果の値 */
+                font-size: 1.1em;
+            }
+            #restart.restart-button { /* はじめにもどるボタン */
+                font-size: 0.9em;
+                padding: 8px 18px;
+            }
+            .feedback { /* フィードバック表示 */
+               font-size: 1.3rem;
+            }
+        }
+        /* ▲▲▲ 新しいゲーム用のスタイルここまで ▲▲▲ */
+
+        /* 注意: レスポンシブ設定(@media)が複数箇所にありますが、
+           可能であればファイル末尾などにまとめて書くと管理しやすくなります。 */
+    </style>
+    <!-- ▲▲▲ CSSコードの埋め込みここまで ▲▲▲ -->
+
+</head>
+
+<body>
+  <div class="container">
+
+      <!-- ▼▼▼ Section 1: ゲームセクション（修正済み）▼▼▼ -->
+      <section id="section1">
+          <h1>親子でチャレンジ！<br>何回鳴った？ゲーム</h1>
+
+          <div id="mosquito-game">
+              <!-- 現在周波数表示 -->
+              <div id="currentDisplay" class="frequency-display">
+                  現在: <span id="currentFrequency">8000</span> Hz
+              </div>
+
+              <!-- 周波数調整ボタン -->
+              <div class="frequency-adjust">
+                  <button id="plus1k">
+                      <svg class="icon" viewBox="0 0 24 24"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6v-2Z" /></svg>
+                      +1kHz
+                  </button>
+                  <button id="minus1k">
+                      <svg class="icon" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2Z" /></svg>
+                      -1kHz
+                  </button>
+                  <button id="plus100">
+                      <svg class="icon" viewBox="0 0 24 24"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6v-2Z" /></svg>
+                      +100Hz
+                  </button>
+                  <button id="minus100">
+                      <svg class="icon" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2Z" /></svg>
+                      -100Hz
+                  </button>
+              </div>
+
+              <!-- スタートボタン -->
+              <button id="startGame" class="challenge-button">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z" /></svg>
+                  チャレンジ！
+              </button>
+
+              <!-- フィードバック表示 -->
+              <div id="feedback" class="feedback"></div>
+
+              <!-- 回答ボタン -->
+              <div id="answerButtons" class="answer-buttons">
+                  <button class="answer-button" data-answer="1">1</button> <!-- colorful-button クラスは不要 -->
+                  <button class="answer-button" data-answer="2">2</button>
+                  <button class="answer-button" data-answer="3">3</button>
+                  <button class="answer-button" data-answer="4">4</button>
+                  <button class="answer-button" data-answer="5">5</button>
+                  <button class="answer-button" data-answer="0">わからない</button>
+              </div>
+
+              <!-- 結果表示 -->
+              <div class="results">
+                   <div class="result-item"> <!-- stat クラスは不要 -->
+                      <div class="label">最高記録</div>
+                      <div id="highestFrequencyDisplay" class="value">---- Hz</div>
+                  </div>
+                  <div class="result-item">
+                      <div class="label">正答率</div>
+                      <div id="accuracyDisplay" class="value">--.--%</div>
+                  </div>
+              </div>
+
+              <!-- はじめにもどるボタン -->
+              <button id="restart" class="restart-button">はじめにもどる</button>
+
+          </div>
+
+          <p>本気でやってもお子様に負けませんでしたか？ その理由は、お子様の耳がグングン成長しているから！</p>
+      </section>
+      <!-- ▲▲▲ Section 1 ここまで ▲▲▲ -->
+
+
+      <!-- ▼▼▼ Section 2 以降は変更なし ▼▼▼ -->
+      <section id="section2">
+        <h2>聴覚の発達、ゴールデンエイジは3歳から9歳まで！</h2>
+        <a href="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-29_dl-1.jpg" target="_blank" rel="noopener">
+            <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-29_dl-1.jpg" alt="聴覚の発達グラフ">
+        </a>
+        <p>タップすると拡大表示されます</p>
+        <p>このグラフが示すように、音楽的耳の成長は3歳頃から急激に伸び、9歳頃に鈍化。今こそ、聴覚世界を広げる絶好のチャンスです！</p>
+      </section>
+
+      <section id="section3">
+          <h2>ヤマハの特長って？</h2>
+          <p>音楽を通して“こころ”を育てます。<br>音を楽しむ、感じとる、そして自分の音で表現する、<br>それがヤマハの総合音楽教育です。</p>
+
+          <div class="feature-description">
+              <div class="feature-item">
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-08_dl-2-scaled.jpg" alt="言葉を覚えるように音楽に親しむ">
+                  <h3>言葉を覚えるように、<br>音楽に親しむ</h3>
+                  <p>みる、きく、うたう、からだをうごかす。小さなからだ全部で感じとった音楽が、“こころ”を育み、“からだ”の成長にともなって気持ちを音楽で表現できるようになっています。ヤマハでは、“こころ”と“からだ”の発達段階に合わせたカリキュラムで無理なく楽しく、言葉を覚えるように音楽を身につけていきます。</p>
+              </div>
+              <div class="feature-item">
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-26_dl-2-scaled.jpg" alt="幼児期には徹底的にきく力を鍛える">
+                  <h3>幼児期には徹底的に<br>「きく」力を鍛える</h3>
+                  <p>音楽を「きく」力が伸びるのは3~5歳がピーク。最も伸びる時期に最適のレッスンをすることで、耳の力はぐんぐん伸びていきます。うたい覚えたドレミを鍵盤で弾いて確認し、繰り返すことで、幼児期のコースを修了したときには耳にした音のドレミがわかるようになります。</p>
+              </div>
+              <div class="feature-item">
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-10_dl-1-scaled.jpg" alt="感じるこころ、イメージする力を育てる">
+                  <h3>感じる“こころ”、<br>“イメージする力”を育てる</h3>
+                  <p>歌詞や曲名から表情 (ニュアンス)を感じ取ったり、絵や映像からイメージをふくらませたり、感じる“こころ”を育てることは音楽力の土台づくり。自分なりのイメージをドレミで表現する音楽的な「創造」への道すじになります。</p>
+              </div>
+              <div class="feature-item">
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-18_dl-1-scaled.jpg" alt="ひとりではできないことで、ひとりひとりを伸ばしていく">
+                  <h3>ひとりではできないことで、<br>ひとりひとりを伸ばしていく</h3>
+                  <p>前で演奏する。お友だちの演奏を聴く。アンサンブルでは、みんなで作り上げる達成感を味わう。ひとりではできない音楽体験を通して集中力、協調性が育まれ、ソーシャル・スキルが身についていきます。音楽のよろこびを分かち合いながら、ひとりひとりの違いを認めることで新しい発見ができる。レッスンは「協同的な学び」の場です。</p>
+              </div>
+          </div>
+      </section>
+
+      <section id="section4">
+          <h2>音楽力がさらにアップするヤマハならではの「グループ」「個人」を組み合わせたレッスン</h2>
+          <p>グループレッスンだからこそできる体験に加えて、個人レッスンでは、特に鍵盤演奏において個々へのきめ細やかな指導を行います。</p>
+          <div class="lesson-grid">
+              <div class="lesson-item">
+                  <h3>グループレッスン</h3>
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-07_dl-1-scaled.jpg" alt="グループレッスン">
+                   <p>お友だちと一緒に演奏を聴き、分かち合う喜びが得られます。
+お友だちと同じテンポで演奏したり、お互いの音を聴きあったり、グループでしかできない経験を積み重ねていきます。
+クラスでの発表の機会を通じて「自分ももっとがんばりたい！」という意欲や、積極性が育まれます。</p>
+              </div>
+              <div class="lesson-item">
+                  <h3>個人レッスン</h3>
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-26_dl-2-scaled.jpg" alt="個人レッスン">
+                  <p>個々に応じた演奏指導や課題指導を行います。
+一人一人に合わせたきめ細やかなサポートで、より充実したグループレッスンへとつなげます。
+意欲にあわせて選曲できるレパートリーを通じて、「もっと弾きたい！」という気持ちを育みます。</p>
+              </div>
+          </div>
+          <p>個人レッスンのみで始められる<br>
+              「ぷらいまりーパーソナル」もご用意しております</p>
+          <p>「伸びる時期に伸びる力を育む」という考え方はそのままに、ピアノまたはエレクトーンの個人レッスンで、音楽の基礎となる力や自由に表現できる力を身につけます。</p>
+          <p>※Step1～3のステップ制です。（各ステップ1年を目安）<br>
+          ※グループレッスンをご希望いただいた方で、開講人数に満たない場合にぷらいまりーパーソナルをご紹介させていただく場合がございます。</p>
+          <p>※ぷらいまりー1で音楽や鍵盤楽器への興味をグループレッスンで無理なく育んだ後、鍵盤演奏のきめ細やかなフォローが可能な月1回の個人レッスンをぷらいまりー2以降から受講いただくことをお勧めいたします。</p>
+      </section>
+
+      <section id="section5">
+          <h2>生徒さんの声</h2>
+          <div class="testimonial-list">
+              <div class="testimonial-item">
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/IMG_E5860-scaled.jpg" alt="Tちゃんのママ">
+                  <p>大きなホールで緊張しながらもみんなと迫力ある合奏が出来たことは夫婦も祖父母も感動でした。</p>
+                  <p class="testimonial-author">Ｔちゃん5歳のママ</p>
+              </div>
+              <div class="testimonial-item">
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/IMG_3243-scaled.jpg" alt="Aちゃんのママ">
+                  <p>平和堂の街角コンサートで一人で弾けたのが自信になったようです。</p>
+                  <p class="testimonial-author">Ａちゃん４歳のママ</p>
+              </div>
+          </div>
+      </section>
+
+      <section id="section7" class="access">
+          <h2 class="section-title">ヤマハ音楽教室会場</h2>
+          <div class="access-grid">
+              <div class="access-card">
+                  <i class="fas fa-map-marker-alt access-icon" aria-hidden="true"></i>
+                  <h3>今津センター（今津本店２階）</h3>
+                  <p>〒520-1631</p>
+                  <p>
+                      <a href="https://www.google.com/maps?q=滋賀県高島市今津町名小路1丁目1" target="_blank" rel="noopener">
+                          滋賀県高島市今津町名小路1丁目1
+                      </a>
+                  </p>
+                  <a href="https://www.yamaha-ongaku.com/music-school/room/room_detail.php?shopcode=20402400&venuecode=500" target="_blank" rel="noopener">教室の詳細はこちら</a>
+              </div>
+              <div class="access-card">
+                  <i class="fas fa-map-marker-alt access-icon" aria-hidden="true"></i>
+                  <h3>サウンドステーションあどがわ</h3>
+                  <p>〒520-1212</p>
+                  <p>
+                      <a href="https://www.google.com/maps?q=滋賀県高島市安曇川町西万木55" target="_blank" rel="noopener">
+                          滋賀県高島市安曇川町西万木55（平和堂あどがわ内）
+                      </a>
+                  </p>
+                  <a href="https://www.yamaha-ongaku.com/music-school/room/room_detail.php?shopcode=20402400&venuecode=675" target="_blank" rel="noopener">教室の詳細はこちら</a>
+              </div>
+              <div class="access-card">
+                  <i class="fas fa-map-marker-alt access-icon" aria-hidden="true"></i>
+                  <h3>大津わにセンター</h3>
+                  <p>〒520-0522</p>
+                  <p>
+                      <a href="https://www.google.com/maps?q=滋賀県大津市和邇中浜366" target="_blank" rel="noopener">
+                          滋賀県大津市和邇中浜366（今西ビル2F）
+                      </a>
+                  </p>
+                  <a href="https://www.yamaha-ongaku.com/music-school/room/room_detail.php?shopcode=20402400&venuecode=940" target="_blank" rel="noopener">教室の詳細はこちら</a>
+              </div>
+          </div>
+      </section>
+
+      <section id="section8" class="lesson-flow">
+          <h2>無料体験レッスンの流れ（例）</h2>
+          <div class="flow-container">
+              <div class="flow-item">
+                  <div class="flow-step">STEP<br>1</div>
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-03_dl-1-scaled.jpg" alt="スタッフごあいさつ">
+                  <h3>スタッフごあいさつ〜講師紹介</h3>
+                  <p>教室スタッフがレッスンの流れを説明し、担当講師を紹介します。</p>
+              </div>
+              <div class="flow-item">
+                  <div class="flow-step">STEP<br>2</div>
+                   <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-18_dl-1-scaled.jpg" alt="体験レッスン">
+                  <h3>体験レッスン</h3>
+                  <p>当日配布する「体験レッスンぶっく」に沿って、レッスンを進めていきます。レッスンでは、お子さまが興味を示さない場合も保護者の方がご自身で楽しんでいただく事がポイントです。ママやパパが楽しんでいる姿を見ることで、お子さまもリラックスできます。</p>
+              </div>
+              <div class="flow-item">
+                  <div class="flow-step">STEP<br>3</div>
+                   <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-06_dl-1-scaled.jpg" alt="開講クラスのご案内">
+                  <h3>開講クラスのご案内</h3>
+                  <p>入会受付中のクラスをご案内します。不明点や不安なことがある場合は、お気軽にスタッフ・講師にご相談ください。体験後すぐに、入会を決めていただく必要はありませんので、ゆっくりご検討ください。入会ご希望の場合はその場でお申込みも可能です。</p>
+              </div>
+          </div>
+
+          <h2>ご予約から当日までの流れ</h2>
+          <div class="flow-container">
+              <div class="flow-item">
+                  <div class="flow-step">STEP<br>1</div>
+                   <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-17_dl-1-scaled.jpg" alt="お申込み">
+                  <h3>お申込み</h3>
+                  <p>まずは下記からお近くの教室の体験レッスンをお申込みください。（各教室のWEBページからご予約）WEBからは24時間お申し込みが可能です。</p>
+              </div>
+              <div class="flow-item">
+                  <div class="flow-step">STEP<br>2</div>
+                   <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-24_dl-1-scaled.jpg" alt="お申込みの教室よりご連絡">
+                  <h3>お申込みの教室よりご連絡</h3>
+                  <p>お申し込み後、あらためて教室スタッフから確認のご連絡をさせていただきます。</p>
+              </div>
+              <div class="flow-item">
+                  <div class="flow-step">STEP<br>3</div>
+                  <img src="https://www.toriimusic.co.jp/wp/wp-content/uploads/prm-18_dl-1-scaled.jpg" alt="当日お越しいただき、体験レッスンをお楽しみください">
+                  <h3>当日お越しいただき、体験レッスンをお楽しみください</h3>
+                  <p>当日は、レッスン開始時刻より少し早めにお越しいただく事をおすすめします。教室の雰囲気に慣れておくと、レッスンが始まる頃には緊張がほぐれてスムーズに参加できるようになります。</p>
+              </div>
+          </div>
+      </section>
+
+      <section id="section7" class="access"> <!-- ID重複注意 -->
+          <h2 class="section-title">ヤマハ無料体験教室の<br>お申込みはこちら</h2>
+          <div class="access-grid">
+              <div class="access-card">
+                  <i class="fas fa-map-marker-alt access-icon" aria-hidden="true"></i>
+                  <h3>今津センター（今津本店２階）</h3>
+                  <p>〒520-1631</p>
+                  <p>
+                      <a href="https://www.google.com/maps?q=滋賀県高島市今津町名小路1丁目1" target="_blank" rel="noopener">
+                          滋賀県高島市今津町名小路1丁目1
+                      </a>
+                  </p>
+                  <a href="https://www.yamaha-ongaku.com/music-school/room/room_detail.php?shopcode=20402400&venuecode=500" target="_blank" rel="noopener">お申込みはこちら</a>
+              </div>
+              <div class="access-card">
+                  <i class="fas fa-map-marker-alt access-icon" aria-hidden="true"></i>
+                  <h3>サウンドステーションあどがわ</h3>
+                  <p>〒520-1212</p>
+                  <p>
+                      <a href="https://www.google.com/maps?q=滋賀県高島市安曇川町西万木55" target="_blank" rel="noopener">
+                          滋賀県高島市安曇川町西万木55（平和堂あどがわ内）
+                      </a>
+                  </p>
+                  <a href="https://www.yamaha-ongaku.com/music-school/room/room_detail.php?shopcode=20402400&venuecode=675" target="_blank" rel="noopener">お申込みはこちら</a>
+              </div>
+              <div class="access-card">
+                  <i class="fas fa-map-marker-alt access-icon" aria-hidden="true"></i>
+                  <h3>大津わにセンター</h3>
+                  <p>〒520-0522</p>
+                  <p>
+                      <a href="https://www.google.com/maps?q=滋賀県大津市和邇中浜366" target="_blank" rel="noopener">
+                          滋賀県大津市和邇中浜366（今西ビル2F）
+                      </a>
+                  </p>
+                  <a href="https://www.yamaha-ongaku.com/music-school/room/room_detail.php?shopcode=20402400&venuecode=940" target="_blank" rel="noopener">お申込みはこちら</a>
+              </div>
+          </div>
+      </section>
+
+
+      <ul class="guarantee-points">
+        <li>無理な勧誘は一切ありません</li>
+        <li>経験豊富な講師が丁寧に指導します</li>
+        <li>お子様の個性と才能を伸ばします</li>
+      </ul>
+      <!-- </section> ← 対応する開始タグがないためコメントアウト推奨 -->
+
+  </div> <!-- .container 閉じタグ -->
+
+<footer>
+    <p>© 2024 ヤマハ音楽教室　トリイミュージック</p>
+</footer>
+
+<!-- ▼▼▼ JavaScriptコードをここに埋め込み ▼▼▼ -->
+<script>
+    /* -------------------------------------------------------------------
+       Cookie操作関数 (これはそのまま残します)
+       ------------------------------------------------------------------- */
+
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        // Cookieの値をエンコードすることを推奨
+        document.cookie = name + "=" + (encodeURIComponent(value) || "") + expires + "; path=/; SameSite=Lax"; // SameSite属性を追加
+    }
+
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) {
+                // Cookieの値をデコードする
+                return decodeURIComponent(c.substring(nameEQ.length, c.length));
+            }
+        }
+        return null;
+    }
+
+    /* --- ここから下は新しいゲームのコードです --- */
+    /*     古いゲームのコードは削除されています     */
+
+    /* -------------------------------------------------------------------
+       新しいモスキートゲームのロジック
+       ------------------------------------------------------------------- */
+
+    // --- 定数・変数定義 ---
+    let gameMinFrequency = 8000; // ゲームの最低周波数 ★ letに変更 (モバイル制限のため)
+    let gameMaxFrequency = 22000; // ゲームの最高周波数 ★ letに変更 (モバイル制限のため)
+    let gameCurrentFrequency = 8000; // 現在のゲーム周波数
+    let gameHighestFrequency = 8000; // 記録された最高周波数
+    let gameTotalRounds = 0; // プレイしたラウンド数
+    let gameCorrectAnswers = 0; // 正解数
+    let gameCurrentBeepCount = 0; // 現在のラウンドで鳴らすビープ音の回数
+    let gameIsPlayingSequence = false; // ビープ音再生中かどうかのフラグ
+    let gameAudioCtx = null; // Web Audio APIのコンテキスト
+
+    // --- DOM要素の取得 (HTMLのIDに合わせて取得) ---
+    const gameCurrentFreqDisplaySpan = document.getElementById('currentFrequency'); // 周波数表示の<span>
+    const gameHighestFreqDisplayDiv = document.getElementById('highestFrequencyDisplay'); // 最高記録表示の<div>
+    const gameAccuracyDisplayDiv = document.getElementById('accuracyDisplay'); // 正答率表示の<div>
+    const gameFeedbackDiv = document.getElementById('feedback'); // フィードバック表示の<div>
+    const gameAnswerButtons = document.querySelectorAll('#answerButtons .answer-button'); // 回答ボタン(複数)
+    const gameStartButton = document.getElementById('startGame'); // スタートボタン
+    const gameRestartButton = document.getElementById('restart'); // はじめにもどるボタン
+    const gameFreqAdjustButtons = document.querySelectorAll('.frequency-adjust button'); // 周波数調整ボタン(複数)
+
+    // --- AudioContext初期化 ---
+    // Web Audio APIを使うための準備。ユーザー操作があった時に初期化される
+    function initGameAudioContext() {
+        // すでに初期化済み or AudioContext非対応なら何もしない
+        if (gameAudioCtx || !(window.AudioContext || window.webkitAudioContext)) {
+            return;
+        }
+        try {
+            gameAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            // 一部のブラウザで一時停止されている場合があるので再開を試みる
+            if (gameAudioCtx.state === 'suspended') {
+                gameAudioCtx.resume();
+            }
+            console.log("AudioContext initialized or resumed."); // 確認用ログ
+        } catch (e) {
+            console.error("Web Audio API is not supported or could not be initialized.", e);
+            // ユーザーにエラーを通知（ただし、alertは体験を損なう可能性あり）
+            // 例: コンソールエラーのみ、または目立たない場所にメッセージ表示
+            // alert("オーディオ機能の初期化に失敗しました。");
+        }
+    }
+    // ページ上のどこかをクリックまたはタッチした時に一度だけ初期化を実行
+    document.body.addEventListener('click', initGameAudioContext, { once: true });
+    document.body.addEventListener('touchstart', initGameAudioContext, { once: true });
+
+    // --- 表示更新関数 ---
+    // HTMLの表示部分（周波数、最高記録、正答率）を更新する
+    function updateGameDisplays() {
+        // 現在周波数を表示 (要素が存在すれば)
+        if (gameCurrentFreqDisplaySpan) {
+            gameCurrentFreqDisplaySpan.textContent = gameCurrentFrequency;
+        }
+        // 最高記録を表示 (要素が存在し、記録があればHz付きで、なければ'---- Hz')
+        if (gameHighestFreqDisplayDiv) {
+            gameHighestFreqDisplayDiv.textContent = gameHighestFrequency && gameHighestFrequency >= gameMinFrequency ? gameHighestFrequency + ' Hz' : '---- Hz';
+        }
+        // 正答率を計算して表示 (要素が存在すれば)
+        let acc = gameTotalRounds > 0 ? ((gameCorrectAnswers / gameTotalRounds) * 100).toFixed(1) : 0;
+        if (gameAccuracyDisplayDiv) {
+            gameAccuracyDisplayDiv.textContent = gameTotalRounds > 0 ? acc + '%' : '--.--%';
+        }
+    }
+
+    // --- ボタン無効化関数 ---
+    // ゲームの操作中などにボタンを押せないようにする/解除する
+    function disableGameButtons(disabled) {
+        if (gameStartButton) gameStartButton.disabled = disabled;
+        if (gameAnswerButtons) gameAnswerButtons.forEach(btn => btn.disabled = disabled);
+        if (gameFreqAdjustButtons) gameFreqAdjustButtons.forEach(btn => btn.disabled = disabled);
+        // はじめにもどるボタン(gameRestartButton)は常に有効にしておく
+    }
+
+    // --- 周波数調整ボタンのイベントリスナー ---
+    // 各調整ボタンがクリックされたときの処理
+    gameFreqAdjustButtons?.forEach(button => {
+        button.addEventListener('click', () => {
+            // 音再生中は調整できないようにする
+            if (gameIsPlayingSequence) return;
+
+            const id = button.id; // クリックされたボタンのIDを取得
+            let frequencyChanged = false; // 周波数が変更されたかのフラグ
+
+            // ボタンIDに応じて周波数を増減 (上限/下限を超えないように)
+            if (id === 'plus1k' && gameCurrentFrequency + 1000 <= gameMaxFrequency) {
+                gameCurrentFrequency += 1000;
+                frequencyChanged = true;
+            } else if (id === 'minus1k' && gameCurrentFrequency - 1000 >= gameMinFrequency) {
+                gameCurrentFrequency -= 1000;
+                frequencyChanged = true;
+            } else if (id === 'plus100' && gameCurrentFrequency + 100 <= gameMaxFrequency) {
+                gameCurrentFrequency += 100;
+                frequencyChanged = true;
+            } else if (id === 'minus100' && gameCurrentFrequency - 100 >= gameMinFrequency) {
+                gameCurrentFrequency -= 100;
+                frequencyChanged = true;
+            }
+
+            // 周波数が変更されたら表示を更新
+            if (frequencyChanged) {
+                updateGameDisplays();
+            }
+        });
+    });
+
+
+    // --- スタートボタンのイベントリスナー ---
+    // スタートボタンがクリックされたときの処理
+    gameStartButton?.addEventListener('click', () => {
+        initGameAudioContext(); // 念のためAudioContextを初期化/再開
+        // AudioContextが利用不可ならアラート表示して終了
+        if (!gameAudioCtx) {
+            // alertは体験を損なうため、コンソールログに留めるか、別の方法で通知
+            console.warn("AudioContext not available. Please interact with the page first.");
+            // 必要ならユーザーにメッセージ表示
+            if (gameFeedbackDiv) gameFeedbackDiv.textContent = "音を再生できません。ページをクリックかタップしてください。";
+            return;
+        }
+        // AudioContextが一時停止状態なら再開してからゲーム開始処理へ
+        if (gameAudioCtx.state === 'suspended') {
+            gameAudioCtx.resume().then(() => {
+                console.log("AudioContext resumed on Start!");
+                proceedStartGame(); // ゲーム開始処理を実行
+            }).catch(e => console.error("Failed to resume AudioContext:", e));
+        } else {
+            proceedStartGame(); // そのままゲーム開始処理を実行
+        }
+    });
+
+    // ゲーム開始のメイン処理 (AudioContextが有効な状態で呼ばれる)
+    function proceedStartGame() {
+        // すでに再生中なら何もしない
+        if (gameIsPlayingSequence) return;
+
+        disableGameButtons(true); // 操作ボタンを無効化
+        // フィードバック表示をクリア
+        if (gameFeedbackDiv) {
+            gameFeedbackDiv.innerHTML = "";
+            gameFeedbackDiv.className = 'feedback'; // CSSクラスをリセット
+        }
+        gameTotalRounds++; // ラウンド数を増やす
+        gameCurrentBeepCount = Math.floor(Math.random() * 5) + 1; // 鳴らす回数を1～5でランダムに決定
+        gameIsPlayingSequence = true; // 再生中フラグを立てる
+
+        console.log(`Starting round ${gameTotalRounds}. Correct answer: ${gameCurrentBeepCount} beeps at ${gameCurrentFrequency} Hz`); // ログ出力
+
+        // 少し待ってからビープ音再生を開始 (ボタン無効化を視覚的に反映させるため)
+        setTimeout(() => {
+            playGameBeepSequence(gameCurrentFrequency, gameCurrentBeepCount, () => {
+                // 再生が終わったら呼ばれるコールバック関数
+                gameIsPlayingSequence = false; // 再生中フラグを解除
+                // 回答ボタンを有効化
+                if (gameAnswerButtons) gameAnswerButtons.forEach(btn => btn.disabled = false);
+                // スタートボタンは回答があるまで無効のままが良いかも？状況による
+                // if (gameStartButton) gameStartButton.disabled = false;
+                // 周波数調整ボタンも回答があるまで無効にするか？
+                // if (gameFreqAdjustButtons) gameFreqAdjustButtons.forEach(btn => btn.disabled = false);
+                console.log("Sequence finished, waiting for answer."); // ログ出力
+            });
+        }, 100); // 100ミリ秒待機
+    }
+
+
+    // --- 回答ボタンのイベントリスナー ---
+    // 各回答ボタンがクリックされたときの処理
+    gameAnswerButtons?.forEach(button => {
+        button.addEventListener('click', () => {
+            initGameAudioContext(); // 念のためAudioContextを初期化/再開
+            // AudioContextがない、または再生中なら何もしない
+            if (!gameAudioCtx || gameIsPlayingSequence) {
+                console.warn("Cannot process answer now. AudioContext:", gameAudioCtx, "Playing:", gameIsPlayingSequence);
+                return;
+             }
+
+            // AudioContextが一時停止状態なら再開してから回答処理へ
+             if (gameAudioCtx.state === 'suspended') {
+                 gameAudioCtx.resume().then(() => {
+                     console.log("AudioContext resumed on Answer!");
+                     processGameAnswer(button); // 回答処理を実行
+                 }).catch(e => console.error("Failed to resume AudioContext on answer:", e));
+             } else {
+                 processGameAnswer(button); // そのまま回答処理を実行
+             }
+        });
+    });
+
+    // 回答処理の呼び出し部分 (AudioContextが有効な状態で呼ばれる)
+    function processGameAnswer(button) {
+         const answer = parseInt(button.getAttribute('data-answer')); // ボタンのdata-answer属性から回答数を取得
+         console.log(`User answered: ${answer}`); // ログ出力
+         processGameAnswerLogic(answer); // 回答判定と後処理のロジックを実行
+    }
+
+
+   // --- 音再生関数 (指定時刻に再生) ---
+    // 指定された周波数(freq)、長さ(duration)、開始時刻(startTime)でサイン波を再生
+    function playGameToneAtTime(freq, duration, startTime) {
+        if (!gameAudioCtx) return; // AudioContextがなければ終了
+        // startTimeが過去の場合、現在時刻に調整（スケジュールの遅延対策）
+        const effectiveStartTime = Math.max(startTime, gameAudioCtx.currentTime);
+
+        try {
+            const oscillator = gameAudioCtx.createOscillator(); // 音源(オシレーター)を作成
+            const gainNode = gameAudioCtx.createGain(); // 音量調整(ゲイン)ノードを作成
+            oscillator.type = 'sine'; // 波形をサイン波に設定
+            oscillator.frequency.setValueAtTime(freq, effectiveStartTime); // 指定時刻に周波数を設定
+            oscillator.connect(gainNode); // オシレーターをゲインノードに接続
+            gainNode.connect(gameAudioCtx.destination); // ゲインノードをスピーカー(destination)に接続
+
+            // === ノイズ対策: Attack/Release をより緩やかに、音量を下げる ===
+            // ★変更点: attackTime と releaseTime を 0.03 に変更
+            const attackTime = 0.03;  // 0.02 -> 0.03 に変更（少し長く）
+            const releaseTime = 0.03; // 0.02 -> 0.03 に変更（少し長く）
+            // ★変更点: peakVolume を 0.3 に変更
+            const peakVolume = 0.3;   // 0.5 -> 0.3 に変更（より小さく）※聞こえる範囲で調整
+
+            // duration はこの実装では直接使わないが、間隔計算のために引数としては残す
+
+            gainNode.gain.setValueAtTime(0, effectiveStartTime); // 開始時は音量0
+            // attackTime かけて peakVolume まで上げる
+            gainNode.gain.linearRampToValueAtTime(peakVolume, effectiveStartTime + attackTime);
+            // Attackの終了直後から Release を開始する
+            const releaseStartTime = effectiveStartTime + attackTime;
+            // releaseTime かけて音量 0 まで下げる
+            gainNode.gain.linearRampToValueAtTime(0, releaseStartTime + releaseTime);
+
+            oscillator.start(effectiveStartTime); // 指定時刻に再生開始
+
+            // === stop()のタイミング: ゲインが0になった少し後に停止 ===
+            // stopの計算はattackTime, releaseTimeの変更に合わせて自動的に調整される
+            const stopTime = releaseStartTime + releaseTime + 0.05; // ゲインが0になる時刻 + 余裕
+            oscillator.stop(stopTime);
+
+        } catch (e) {
+             console.error("Error playing tone (Adjusted A/R & Volume):", e); // エラー発生時のログ
+        }
+    }
+    // --- ビープシーケンス再生関数 ---
+    // 指定回数(count)だけビープ音を再生し、終わったらコールバック(callback)を実行
+    function playGameBeepSequence(freq, count, callback) {
+        if (!gameAudioCtx) { // AudioContextがなければ即コールバック実行
+            if (callback) callback();
+            return;
+        }
+        const beepDuration = 0.15; // 1回のビープ音の長さ(秒) - エンベロープ時間より長いことを確認
+        const gapDuration = 0.1; // ビープ音間の無音時間(秒)
+        let baseTime = gameAudioCtx.currentTime; // 現在時刻を基準にする
+
+        console.log(`Scheduling ${count} beeps...`); // ログ出力
+
+        // 指定回数分、再生スケジュールを登録
+        for (let i = 0; i < count; i++) {
+            const startTime = baseTime + i * (beepDuration + gapDuration); // 各ビープ音の開始時刻を計算
+            playGameToneAtTime(freq, beepDuration, startTime); // 計算した時刻に再生するようスケジュール
+        }
+
+        // 全てのビープ音が鳴り終わるであろう時刻を計算
+        // ★注意: beepDuration は playGameToneAtTime 内で直接使われなくなったが、シーケンス間隔の計算には影響
+        const totalSequenceDuration = count > 0 ? (count - 1) * (beepDuration + gapDuration) + beepDuration : 0;
+        // 実際の音の長さは attackTime + releaseTime (0.03 + 0.03 = 0.06秒) だが、
+        // シーケンスのタイミング自体は beepDuration (0.15秒) を基準にしているので、
+        // waitTime の計算は元のままで良いはず。余裕(100ms)もあるため問題ない。
+        const waitTime = totalSequenceDuration * 1000; // ミリ秒に変換
+        console.log(`Callback scheduled in approx ${waitTime.toFixed(0)} ms`); // ログ出力
+
+        // 計算した時刻後にコールバック関数を実行するようスケジュール
+        setTimeout(() => {
+            if (callback) callback(); // コールバックがあれば実行
+        }, waitTime + 100); // 再生終了時刻に少し余裕を持たせる(100ms)
+    }
+
+
+    // --- 回答判定と後処理ロジック ---
+    function processGameAnswerLogic(answer) {
+        // 回答ボタンはすでに disableGameButtons(true) で無効化されている想定だが、念のためここでも無効化
+        if (gameAnswerButtons) gameAnswerButtons.forEach(btn => btn.disabled = true);
+
+        // フィードバック表示エリアのクラスをリセット（アニメーション用）
+        if (gameFeedbackDiv) {
+            gameFeedbackDiv.className = 'feedback';
+            void gameFeedbackDiv.offsetWidth; // 強制リフローでアニメーションをリセット
+        }
+
+        const correctAnswer = gameCurrentBeepCount; // 正解の回数
+        let feedbackHTML = ''; // 表示するHTML
+        let feedbackClass = ''; // 付与するCSSクラス ('correct-feedback' or 'incorrect-feedback')
+        let isCorrect = (answer === correctAnswer); // 正誤判定
+
+        // 正解の場合
+        if (isCorrect) {
+            gameCorrectAnswers++; // 正解数を増やす
+            feedbackHTML = "<span>🎉</span> 正解！ <span>🎉</span>";
+            feedbackClass = 'correct-feedback';
+            playGameSoundEffect("correct"); // 正解の効果音を再生
+            // 次の難易度（周波数）を上げる
+            if (gameCurrentFrequency + 1000 <= gameMaxFrequency) {
+                gameCurrentFrequency += 1000;
+            } else if (gameCurrentFrequency < gameMaxFrequency) {
+                gameCurrentFrequency = gameMaxFrequency; // 上限を超えないように
+            }
+            // 最高記録を更新 (正解した場合のみ)
+            if (gameCurrentFrequency > gameHighestFrequency) {
+                gameHighestFrequency = gameCurrentFrequency;
+                console.log(`New highest frequency: ${gameHighestFrequency}`); // ログ出力
+            }
+        // 不正解の場合
+        } else {
+            // 「わからない」を選んだ場合も不正解扱い
+            if (answer === 0) {
+                 feedbackHTML = `<span>🧐</span> 正解は ${correctAnswer} 回でした <span>🧐</span>`; // 少し違うメッセージ
+            } else {
+                 feedbackHTML = `<span>😢</span> 残念！ 正解は ${correctAnswer} 回 <span>😢</span>`;
+            }
+            feedbackClass = 'incorrect-feedback';
+            playGameSoundEffect("incorrect"); // 不正解の効果音を再生
+            // 次の難易度（周波数）を下げる
+            if (gameCurrentFrequency - 500 >= gameMinFrequency) {
+                gameCurrentFrequency -= 500;
+            } else {
+                gameCurrentFrequency = gameMinFrequency; // 下限を超えないように
+            }
+        }
+
+        // フィードバックを表示
+        if (gameFeedbackDiv) {
+            gameFeedbackDiv.innerHTML = feedbackHTML;
+            gameFeedbackDiv.classList.add(feedbackClass, 'pop-animation'); // 正誤クラスとアニメーションクラスを付与
+        }
+
+        updateGameDisplays(); // 画面表示を更新
+
+        // --- Cookieに最高記録と正答率を保存 ---
+        const currentAccuracy = gameTotalRounds > 0 ? ((gameCorrectAnswers / gameTotalRounds) * 100) : 0;
+        setCookie("gameHighestFrequency", gameHighestFrequency, 7); // 最高記録を保存 (7日間)
+        setCookie("gameAccuracy", currentAccuracy.toFixed(1), 7); // 正答率を保存 (7日間)
+        console.log(`Saving Cookie: highest=${gameHighestFrequency}, accuracy=${currentAccuracy.toFixed(1)}`); // ログ出力
+
+        // 少し待ってからボタンの状態を制御
+        setTimeout(() => {
+            // スタートボタンと周波数調整ボタンを有効化
+            if (gameStartButton) gameStartButton.disabled = false;
+            if (gameFreqAdjustButtons) gameFreqAdjustButtons.forEach(btn => btn.disabled = false);
+            // 回答ボタンは次のゲーム開始まで無効のまま
+            if (gameAnswerButtons) gameAnswerButtons.forEach(btn => btn.disabled = true);
+
+        }, 600); // アニメーションや効果音の時間を考慮して600ミリ秒待つ
+    }
+
+    // --- 効果音再生関数 ---
+    // 正解('correct')か不正解('incorrect')に応じた効果音を再生
+    function playGameSoundEffect(type) {
+        if (!gameAudioCtx) return; // AudioContextがなければ終了
+        const now = gameAudioCtx.currentTime; // 現在時刻
+
+        try { // エラーハンドリング追加
+            // 正解音 (ピンポーン)
+            if (type === "correct") {
+                const freq1 = 1500, freq2 = 1000, duration = [0.1, 0.2], gainValue = 0.3;
+                // Pin音
+                const osc1 = gameAudioCtx.createOscillator();
+                const gain1 = gameAudioCtx.createGain();
+                osc1.frequency.value = freq1;
+                gain1.gain.setValueAtTime(0, now);
+                gain1.gain.linearRampToValueAtTime(gainValue, now + 0.01);
+                gain1.gain.linearRampToValueAtTime(0, now + duration[0]);
+                osc1.connect(gain1);
+                gain1.connect(gameAudioCtx.destination);
+                osc1.start(now);
+                osc1.stop(now + duration[0] + 0.01); // 少し余裕を持たせる
+                // Poon音 (少し遅れて開始)
+                const osc2 = gameAudioCtx.createOscillator();
+                const gain2 = gameAudioCtx.createGain();
+                osc2.frequency.value = freq2;
+                const t2 = now + 0.12; // 開始タイミング
+                gain2.gain.setValueAtTime(0, t2);
+                gain2.gain.linearRampToValueAtTime(gainValue, t2 + 0.01);
+                gain2.gain.linearRampToValueAtTime(0, t2 + duration[1]);
+                osc2.connect(gain2);
+                gain2.connect(gameAudioCtx.destination);
+                osc2.start(t2);
+                osc2.stop(t2 + duration[1] + 0.01); // 少し余裕を持たせる
+
+            // 不正解音 (ブブー)
+            } else if (type === "incorrect") {
+                const freq1 = 300, freq2 = 200, duration = [0.3], oscType = 'sawtooth', gainValue = 0.2;
+                const osc = gameAudioCtx.createOscillator();
+                const gain = gameAudioCtx.createGain();
+                osc.type = oscType; // 少し歪んだ音色
+                osc.frequency.setValueAtTime(freq1, now); // 開始周波数
+                osc.frequency.linearRampToValueAtTime(freq2, now + duration[0]); // 時間経過で周波数を下げる
+                gain.gain.setValueAtTime(0, now);
+                gain.gain.linearRampToValueAtTime(gainValue, now + 0.02);
+                gain.gain.setValueAtTime(gainValue, now + duration[0] - 0.02); // 終了直前まで維持
+                gain.gain.linearRampToValueAtTime(0, now + duration[0]);
+                osc.connect(gain);
+                gain.connect(gameAudioCtx.destination);
+                osc.start(now);
+                osc.stop(now + duration[0] + 0.01); // 少し余裕を持たせる
+            }
+        } catch (e) {
+            console.error("Error playing sound effect:", type, e);
+        }
+    }
+
+
+    // --- ゲームリセット処理 ('はじめにもどる'ボタン用) ---
+    gameRestartButton?.addEventListener('click', () => {
+        resetGameLogic();
+    });
+    function resetGameLogic() {
+        gameCurrentFrequency = 8000; // 現在周波数を初期値に戻す
+        // 最高記録(gameHighestFrequency)はリセットしない
+        // 正答率関連はリセット（次のラウンドから再計算）
+        gameTotalRounds = 0;
+        gameCorrectAnswers = 0;
+        gameIsPlayingSequence = false; // 再生フラグを解除
+        updateGameDisplays(); // 表示を更新（周波数と正答率がリセットされる）
+        // フィードバック表示をクリア
+        if (gameFeedbackDiv) {
+            gameFeedbackDiv.innerHTML = "";
+            gameFeedbackDiv.className = 'feedback';
+        }
+        disableGameButtons(false); // ボタンを有効化
+        if (gameAnswerButtons) gameAnswerButtons.forEach(btn => btn.disabled = true); // 回答ボタンは初期状態（無効）に戻す
+        console.log("Game reset. Frequency and stats reset."); // ログ出力
+    }
+
+    // --- 初期化処理 (ページ読み込み時) ---
+    function initializeGame() {
+        // モバイルデバイス判定と最大周波数制限は、必要に応じて追加してください
+        // (前回の提案を参照)
+
+        // Cookieから最高記録を読み込む
+        const savedHighestFrequency = getCookie("gameHighestFrequency");
+        // Cookieから前回終了時の正答率関連情報を読み込む（必要なら）
+        // const savedAccuracy = getCookie("gameAccuracy");
+        // const savedTotalRounds = getCookie("gameTotalRounds"); // 保存するなら
+        // const savedCorrectAnswers = getCookie("gameCorrectAnswers"); // 保存するなら
+
+        if (savedHighestFrequency) {
+            const parsedFreq = parseInt(savedHighestFrequency);
+            // 読み込んだ値が数値で、最低周波数以上なら最高記録として設定
+            // モバイル制限を適用する場合は、上限チェックも追加する必要があります (parsedFreq <= gameMaxFrequency)
+            if (!isNaN(parsedFreq) && parsedFreq >= gameMinFrequency) {
+                 gameHighestFrequency = parsedFreq;
+                 console.log(`Loaded highest frequency from Cookie: ${gameHighestFrequency}`); // ログ出力
+            }
+        }
+        // 必要なら読み込んだ正答率関連の値を設定
+        // if (savedTotalRounds) gameTotalRounds = parseInt(savedTotalRounds) || 0;
+        // if (savedCorrectAnswers) gameCorrectAnswers = parseInt(savedCorrectAnswers) || 0;
+
+
+        updateGameDisplays(); // 初期表示を更新
+        if (gameAnswerButtons) gameAnswerButtons.forEach(btn => btn.disabled = true); // 初期状態では回答ボタンは無効
+        console.log("Game initialized."); // ログ出力
+    }
+
+    // --- ゲーム初期化実行 ---
+    // ページが読み込まれたら、ゲームを初期化する
+    initializeGame();
+
+    /* --- 新しいゲームのコードここまで --- */
+
+    /* -------------------------------------------------------------------
+       もし他にJavaScriptコードがあれば、この下に記述してください。
+       ------------------------------------------------------------------- */
+</script>
+<!-- ▲▲▲ JavaScriptコードの埋め込みここまで ▲▲▲ -->
+
+</body>
+</html>
+
+
