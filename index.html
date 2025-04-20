@@ -1409,57 +1409,63 @@
         try {
             const oscillator = gameAudioCtx.createOscillator(); // 音源(オシレーター)を作成
             const gainNode = gameAudioCtx.createGain(); // 音量調整(ゲイン)ノードを作成
+            const lowpassFilter = gameAudioCtx.createBiquadFilter(); // ★ローパスフィルターを作成
+
             oscillator.type = 'sine'; // 波形をサイン波に設定
             oscillator.frequency.setValueAtTime(freq, effectiveStartTime); // 指定時刻に周波数を設定
-            oscillator.connect(gainNode); // オシレーターをゲインノードに接続
-            gainNode.connect(gameAudioCtx.destination); // ゲインノードをスピーカー(destination)に接続
 
-            // === ノイズ対策: Attack/Release をより緩やかに、音量を下げる ===
-            // ★変更点: attackTime と releaseTime を 0.03 に変更
-            const attackTime = 0.03;  // 0.02 -> 0.03 に変更（少し長く）
-            const releaseTime = 0.03; // 0.02 -> 0.03 に変更（少し長く）
-            // ★変更点: peakVolume を 0.3 に変更
-            const peakVolume = 0.3;   // 0.5 -> 0.3 に変更（より小さく）※聞こえる範囲で調整
+            // ★★★ ローパスフィルターの設定 ★★★
+            lowpassFilter.type = 'lowpass'; // フィルタータイプをローパスに
+            // カットオフ周波数を設定 (ここをさらに下げます)
+            // ★変更点: 16000Hz (または前回試した値) -> 13800Hz
+            const cutoffFreq = 13800;
+            lowpassFilter.frequency.setValueAtTime(cutoffFreq, effectiveStartTime);
+            // Q値 (フィルターの鋭さ、まずは1で)
+            lowpassFilter.Q.setValueAtTime(1, effectiveStartTime);
+            // ★★★★★★★★★★★★★★★★★★★★★★★
 
-            // duration はこの実装では直接使わないが、間隔計算のために引数としては残す
+            // ★接続順の変更: Oscillator -> Filter -> Gain -> Destination
+            oscillator.connect(lowpassFilter);
+            lowpassFilter.connect(gainNode);
+            gainNode.connect(gameAudioCtx.destination);
 
-            gainNode.gain.setValueAtTime(0, effectiveStartTime); // 開始時は音量0
-            // attackTime かけて peakVolume まで上げる
+            // === エンベロープ (前回の対策1の値を使用) ===
+            const attackTime = 0.03;  // 前回の調整値を維持
+            const releaseTime = 0.03; // 前回の調整値を維持
+            const peakVolume = 0.3;   // 前回の調整値を維持
+
+            gainNode.gain.setValueAtTime(0, effectiveStartTime);
             gainNode.gain.linearRampToValueAtTime(peakVolume, effectiveStartTime + attackTime);
-            // Attackの終了直後から Release を開始する
             const releaseStartTime = effectiveStartTime + attackTime;
-            // releaseTime かけて音量 0 まで下げる
             gainNode.gain.linearRampToValueAtTime(0, releaseStartTime + releaseTime);
 
-            oscillator.start(effectiveStartTime); // 指定時刻に再生開始
+            oscillator.start(effectiveStartTime);
 
-            // === stop()のタイミング: ゲインが0になった少し後に停止 ===
-            // stopの計算はattackTime, releaseTimeの変更に合わせて自動的に調整される
             const stopTime = releaseStartTime + releaseTime + 0.05; // ゲインが0になる時刻 + 余裕
             oscillator.stop(stopTime);
 
         } catch (e) {
-             console.error("Error playing tone (Adjusted A/R & Volume):", e); // エラー発生時のログ
+             console.error("Error playing tone (with Lowered Lowpass Filter):", e); // エラー発生時のログ
         }
     }
-    // --- ビープシーケンス再生関数 ---
-    // 指定回数(count)だけビープ音を再生し、終わったらコールバック(callback)を実行
-    function playGameBeepSequence(freq, count, callback) {
-        if (!gameAudioCtx) { // AudioContextがなければ即コールバック実行
-            if (callback) callback();
-            return;
-        }
-        const beepDuration = 0.15; // 1回のビープ音の長さ(秒) - エンベロープ時間より長いことを確認
-        const gapDuration = 0.1; // ビープ音間の無音時間(秒)
-        let baseTime = gameAudioCtx.currentTime; // 現在時刻を基準にする
+   // --- ビープシーケンス再生関数 ---
+function playGameBeepSequence(freq, count, callback) {
+    if (!gameAudioCtx) {
+        if (callback) callback();
+        return;
+    }
+    const beepDuration = 0.15; // この値はタイミング計算の目安
+    // ★変更点: gapDurationを増やして合計の間隔を 0.5秒 (500ms) にする
+    const gapDuration = 0.45; // 0.35 -> 0.45 (合計 600ms)
+    let baseTime = gameAudioCtx.currentTime;
 
-        console.log(`Scheduling ${count} beeps...`); // ログ出力
+    console.log(`Scheduling ${count} beeps with ${ (beepDuration + gapDuration) * 1000 }ms interval...`); // ログ変更
 
-        // 指定回数分、再生スケジュールを登録
-        for (let i = 0; i < count; i++) {
-            const startTime = baseTime + i * (beepDuration + gapDuration); // 各ビープ音の開始時刻を計算
-            playGameToneAtTime(freq, beepDuration, startTime); // 計算した時刻に再生するようスケジュール
-        }
+    for (let i = 0; i < count; i++) {
+        const startTime = baseTime + i * (beepDuration + gapDuration);
+        // playGameToneAtTime に渡す duration は現在使われていないのでそのままでOK
+        playGameToneAtTime(freq, beepDuration, startTime);
+    }
 
         // 全てのビープ音が鳴り終わるであろう時刻を計算
         // ★注意: beepDuration は playGameToneAtTime 内で直接使われなくなったが、シーケンス間隔の計算には影響
@@ -1677,5 +1683,3 @@
 
 </body>
 </html>
-
-
